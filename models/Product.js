@@ -10,6 +10,27 @@ class Product extends Model {}
 Product.init(
   {
     // define columns
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    prodcut_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    price: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+      isDecimal: true,
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      isNumeric: true,
+      defaultValue: 10,
+    }
   },
   {
     sequelize,
@@ -21,3 +42,13 @@ Product.init(
 );
 
 module.exports = Product;
+
+// stock
+  // Integer.
+  // Doesn't allow null values.
+  // Set a default value of 10.
+  // Validates that the value is numeric.
+
+// category_id
+  // Integer.
+  // References the Category model's id.
