@@ -16,7 +16,7 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    prodcut_name: {
+    product_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -30,7 +30,14 @@ Product.init(
       allowNull: false,
       isNumeric: true,
       defaultValue: 10,
-    }
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
@@ -42,12 +49,6 @@ Product.init(
 );
 
 module.exports = Product;
-
-// stock
-  // Integer.
-  // Doesn't allow null values.
-  // Set a default value of 10.
-  // Validates that the value is numeric.
 
 // category_id
   // Integer.
